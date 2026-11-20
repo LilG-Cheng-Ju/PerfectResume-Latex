@@ -1,149 +1,136 @@
-\documentclass{article}
+\documentclass[10pt,a4paper]{article}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage{geometry}
-\usepackage{moresize}
 \usepackage{graphicx}
-\usepackage[colorlinks=true, linkcolor=customblue, urlcolor=customblue, citecolor=customblue]{hyperref}
-\usepackage{xcolor} 
+\usepackage{xcolor}
 \usepackage{enumitem}
-\usepackage{shadowtext}
-\usepackage{xstring}
-\geometry{top = 0.8cm, bottom = 0.8cm, left = 1.5cm, right = 1.5cm}
+\usepackage[colorlinks=true, linkcolor=customblue, urlcolor=customblue, citecolor=customblue]{hyperref}
 
-%%%%%%% custom commands %%%%%%%
+\geometry{top=0.85cm, bottom=0.85cm, left=1.35cm, right=1.35cm}
+\setlength{\parindent}{0pt}
+
+%%%%%%% Custom Colors & Commands %%%%%%%
 \definecolor{customblue}{RGB}{31, 56, 98}
+\definecolor{mutedgray}{RGB}{85, 85, 85}
 
-\newcommand{\TitleShadow}[1]{
-  \hspace{-0.4cm}
-  \shadowtext{\fontsize{16pt}{22pt}\selectfont {\StrLeft{#1}{1}}}%
-  \shadowtext{\fontsize{12pt}{18pt}\selectfont \hspace{-0.5em}\StrGobbleLeft{#1}{1}}%
+\newcommand{\bgt}{\raisebox{0.08ex}{\scalebox{0.82}{\boldmath $>$}}}
+\newcommand{\blt}{\raisebox{0.08ex}{\scalebox{0.82}{\boldmath $<$}}}
+\newcommand{\bsim}{\raisebox{0.08ex}{\scalebox{0.85}{\boldmath $\sim$}}}
+
+\newcommand{\SectionHeader}[1]{%
+  \vspace{0.26cm}
+  {\large\bfseries\color{customblue}\MakeUppercase{#1}}\par
+  \vspace{-0.2cm}
+  \noindent\textcolor{customblue}{\rule{\textwidth}{0.6pt}}\par
+  \vspace{0.1cm}
 }
 
-\newenvironment{workexperience}[4]{
-    \noindent
-    \large \textbf{#1} \\ [0.1cm]
-    \normalsize 
-    \begin{tabular}{@{}l@{\hspace{0.5cm}}l@{}}
-      #2, #3 & \textcolor{customblue}{\textit{\textsf{#4}}}  
-    \end{tabular} 
-    \vspace{-0.15cm}
-    \fontsize{9.5pt}{12pt}\selectfont
-    \begin{itemize}[leftmargin=0.6cm, labelsep=0.3cm, itemsep=-0.05cm]
-}{
-    \end{itemize}
+\newenvironment{workexperience}[4]{%
+  \noindent\textbf{\normalsize #1} \hfill {\small\textcolor{customblue}{\textit{#4}}}\par
+  \vspace{0.02cm}
+  {\small\textcolor{mutedgray}{#2, #3}}\par
+  \vspace{-0.13cm}
+  \begin{itemize}[leftmargin=0.45cm, labelsep=0.22cm, itemsep=0.05cm, topsep=0.07cm, parsep=0pt]
+  \fontsize{9.15pt}{11.55pt}\selectfont
+}{%
+  \end{itemize}
+  \vspace{0.04cm}
 }
 
-\newenvironment{education}[4]{
-    \noindent
-    \large \textbf{#1} \\ [0.1cm]
-    \normalsize 
-    \begin{tabular}{@{}l@{\hspace{0.5cm}}l@{}}
-      #2, #3 & \textcolor{customblue}{\textit{\textsf{#4}}} 
-    \end{tabular} 
-    \vspace{-0.2cm}
-    \fontsize{9pt}{12pt}\selectfont
-    \begin{itemize}[leftmargin=0.6cm, labelsep=0.3cm, itemsep=-0.08cm] 
-}{
-    \end{itemize}
-}
-
-
-%%%%%%% main content %%%%%%%
+%%%%%%% Main Content %%%%%%%
 \begin{document}
 \pagestyle{empty}
 
+% --- Header ---
 \noindent
-\begin{minipage}[t]{0.6\textwidth}
-    \Huge \textbf{Cheng-Ju Lee} \\ [0.1cm]
-    \large Software \& Deep Learning Engineer / Violinist
-\end{minipage}
+\begin{minipage}[t]{0.64\textwidth}
+  \vspace{0pt}
+  {\Huge\bfseries Cheng-Ju (Clement) Lee}\\[0.18cm]
+  {\normalsize\textcolor{mutedgray}{Software Engineer $|$ Full-Stack, CI/CD Infrastructure \& Applied AI}}
+\end{minipage}%
 \hfill
-\begin{minipage}[t]{0.35\textwidth}
+\begin{minipage}[t]{0.34\textwidth}
+  \vspace{-0.02cm}
   \raggedleft
-  \vspace{-0.5cm} 
+  \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{@{}l@{}}
-      \raisebox{-0.55ex}{\includegraphics[height=12pt]{icon/gmail.png}} \small \hspace{0.2cm} \textnormal{billlcj104@gmail.com} \\ [0.12cm]
-      \raisebox{-0.55ex}{\includegraphics[height=12pt]{icon/github.png}} \small \hspace{0.2cm} \href{https://github.com/LilG-Cheng-Ju}{LilG-Cheng-Ju} \\ [0.12cm]
-      \raisebox{-0.55ex}{\includegraphics[height=12pt]{icon/linkedin_1.png}} \small \hspace{0.2cm} \href{https://www.linkedin.com/in/cheng-ju-clement-lee-9b666a20b/}{Cheng-Ju (Clement) Lee} \\ [0.12cm]
-      \raisebox{-0.55ex}{\includegraphics[height=12pt]{icon/telephone.png}} \small \hspace{0.2cm} \textnormal{<+ your phone number>}
+    \raisebox{-0.4ex}{\includegraphics[height=10.5pt]{icon/gmail.png}} \hspace{0.15cm} \small billlcj104@gmail.com \\
+    \raisebox{-0.4ex}{\includegraphics[height=10.5pt]{icon/github.png}} \hspace{0.15cm} \small \href{https://github.com/LilG-Cheng-Ju}{github.com/LilG-Cheng-Ju} \\
+    \raisebox{-0.4ex}{\includegraphics[height=10.5pt]{icon/linkedin_1.png}} \hspace{0.15cm} \small \href{https://www.linkedin.com/in/cheng-ju-clement-lee-9b666a20b/}{Cheng-Ju (Clement) Lee}
   \end{tabular}
-\end{minipage} \\ 
-\vspace{-1.2cm}
+\end{minipage}
 
+\vspace{-0.04cm}
 
-\section*{\TitleShadow{EXPERIENCE}}
-\vspace{-0.5cm}
-\noindent\rule{\textwidth}{0.4pt} 
-\vspace{-0.25cm}
+% --- Experience ---
+\SectionHeader{Experience}
 
-\begin{workexperience}{Software Engineer}{AI Solution BU, ASUS}{Taipei}{Fabruary 2023 \textasciitilde\ Present}
-    \item Built a real-time AI safety monitoring platform for streaming video analysis, increasing incident detection accuracy to 95\% and significantly reducing manual monitoring costs.
-    \item Implemented and optimized object detection, segmentation, tracking, and pose estimation algorithms, reducing pre- and post-processing time by up to 93\% and continuously improving model precision by up to 0.12 mAP@50:95.
-    \item Leveraged MLOps and CI/CD practices with Kubernetes to efficiently deploy AI models via Nvidia Triton, optimizing deployment pipelines and boosting GPU resource utilization by 1.6x.
-    \item Handled large-scale project tasks including version control, vulnerability fixes, and code encryption.
-    \item Continuously improved Python programming capabilities, including object-oriented design, asynchronous programming, and design patterns. Refactored core components of departmental products, reducing system resource usage by up to 24\%.
-    \item Acted as a bridge between PMs and the development team, translating complex technical concepts into actionable business insights, ensuring smooth project execution and reducing miscommunication.
+\begin{workexperience}{Software Engineer}{Google (Google Home)}{Taipei}{September 2025 -- Present}
+  \item Owned firmware CI/CD and release infrastructure powering Google Home devices across \textbf{hundreds of multi-region build VMs} without added hardware, cutting rate-limiting failures by \textbf{\bgt90\%}, postsubmit infra failures by \textbf{\bgt95\%}, and queue stalls from \textbf{days to \blt3s}, via throttling telemetry, regional fleet rebalancing, and distributed deadlock fixes.
+  \item Architected an extensible full-stack search and navigation platform for Matter / smart-home debugging, reaching \textbf{\bsim47\%} adoption in 3 weeks, cutting query latency to \textbf{\blt5s}, and removing \textbf{\bgt10s} switching waits, by building a custom query-language engine (replacing two legacy services) and a non-blocking multi-model prefetch architecture.
+  \item Built scalable AI-assisted operations and developer tooling adopted across team on-call shifts, accelerating fleet diagnostics and build root-cause analysis by \textbf{3.8x--7.5x} (78\%--91\% token reduction) and enabling same-day P0 recovery, by creating shared diagnostic CLIs, modular AI agent skills, and repo-wide AI code reviews.
+  \item Drove long-term platform maintainability and team standards, retiring a legacy backend with \textbf{zero downtime} and leading frontend modernization to \textbf{100\%} Angular Standalone and \textbf{56\%} Signals adoption (up from 0\%), by unifying web/CLI APIs, codifying architectural patterns into shared AI coding skills, and co-hosting a SWE intern.
 \end{workexperience}
 
-\vspace{-0.1cm}
-
-\begin{workexperience}{Project Manager \footnotesize{(Official title: Project Planner)} \large \& AI Engineer}{Environmental Management Consultants Technologies (Emct)}{Taipei}{August 2021 \textasciitilde\ January 2023}
-  \item Led the development of an AI inference service on GCP for the National Palace Museum, supporting 500+ concurrent users, from concept to deployment. 
-  \item Containerized API services with FastAPI/Flask, enhancing scalability and simplifying deployment pipelines.
-  \item Applied multi-task/label learning and model quantization techniques to improve model inference speed by 80\% while maintaining accuracy, optimizing resource usage.
-  \item Managed project lifecycle and technical execution, designing intuitive UI/UX with \textbf{\textcolor{customblue}{Figma}} and coordinating cross-functional teams via \textbf{\textcolor{customblue}{ClickUp}} to streamline delivery from concept to launch.
+\begin{workexperience}{Software Engineer}{AI Solution BU, ASUS}{Taipei}{February 2023 -- August 2025}
+  \item Built a real-time AI safety monitoring platform for streaming video analytics, increasing incident detection accuracy to \textbf{95\%} and reducing manual monitoring overhead.
+  \item Accelerated real-time computer vision pipelines (detection, segmentation, tracking, pose estimation), cutting pre- and post-processing latency by up to \textbf{93\%} and improving precision by \textbf{+0.12 mAP@50:95}.
+  \item Scaled production AI model serving and boosted GPU resource utilization by \textbf{1.6x} by building Kubernetes CI/CD and MLOps deployment pipelines with NVIDIA Triton.
+  \item Reduced system resource usage by \textbf{24\%} and streamlined cross-team execution by refactoring core Python modules (async and OOP design patterns) and partnering with PMs to align technical solutions with product goals.
 \end{workexperience}
 
-\vspace{-0.8cm}
+\begin{workexperience}{Project Manager \& AI Engineer}{Environmental Management Consultants Technologies (Emct)}{Taipei}{August 2021 -- January 2023}
+  \item Delivered a production AI inference service on GCP for the National Palace Museum supporting \textbf{500+ concurrent users} by leading system architecture and containerized FastAPI/Flask deployment.
+  \item Improved production model inference speed by \textbf{80\%} while maintaining accuracy by applying multi-task/multi-label learning and model quantization techniques.
+  \item Drove end-to-end delivery from concept to launch by owning product lifecycle, \textbf{Figma} UI/UX design, and cross-functional coordination across engineering and client stakeholders.
+\end{workexperience}
 
-\section*{\TitleShadow{EDUCATION}}
-\vspace{-0.5cm}
-\noindent\rule{\textwidth}{0.4pt} 
-\vspace{-0.25cm}
+\vspace{-0.18cm}
 
-\begin{education}{Master of Science in Surveying and Geomatics}{National Chung Hsing University}{Taichung}{July 2019 \textasciitilde\ July 2021}
-    \item \textbf{Advisor:} Ming-Der Yang, Advanced Image Processing and Application Lab. (AIPal)
-    \item \textbf{Fisrt Author:} \textcolor{customblue}{\href{https://doi.org/10.1016/j.compag.2023.107739}{\textit{Single-plant broccoli growth monitoring using deep learning with UAV imagery.}}}
-    \item Relevant Coursework: Image Processing, Machine Learning, Remote Sensing, Precision Agriculture | \textbf{GPA:} 3.86
-\end{education}
+% --- Education ---
+\SectionHeader{Education}
 
-\vspace{-0.1cm}
-
-\begin{education}{Bachelor of Science in Civil Engineering}{National Chung Hsing University}{Taichung}{September 2013 \textasciitilde\ June 2018}
-    \item Concertmaster (Principal Violin) of the school’s symphony orchestra
-\end{education}
-
-\vspace{-0.7cm}
-
-\section*{\TitleShadow{LEADERSHIP}  \shadowtext{\&}\ \TitleShadow{ACTIVITIES}}
-\vspace{-0.5cm}
-\noindent\rule{\textwidth}{0.4pt} 
-
-\noindent
-\small
-\begin{itemize}[leftmargin=0.6cm, labelsep=0.3cm, itemsep=-0.1cm]
-    \item \textbf{Student Conductor \& Concertmaster, School Symphony Orchestra} \\
-    Led and conducted over 60 members in various performances; previously served as concertmaster.
-    \vspace{0.15cm}
-    \item \textbf{Violinist, National Taiwan Symphony Orchestra, Taipei Philharmonic, and others}\\
-    Currently performing in several prestigious orchestras in Taiwan.
-    \vspace{0.15cm}
-    \item \textbf{Organizer \& Performer, Chamber Music Group}\\
-    Organized and performed over 20 classical music concerts in rural Taiwan, bringing live performances to children.
+\noindent\textbf{\normalsize M.S. in Surveying and Geomatics} \hfill {\small\textcolor{customblue}{\textit{July 2019 -- July 2021}}}\par
+\vspace{0.02cm}
+{\small\textcolor{mutedgray}{National Chung Hsing University, Taichung \ $|$ \ GPA: 3.86}}\par
+\vspace{-0.13cm}
+\begin{itemize}[leftmargin=0.45cm, labelsep=0.22cm, itemsep=0.04cm, topsep=0.06cm, parsep=0pt]
+  \fontsize{9.15pt}{11.55pt}\selectfont
+  \item \textbf{First Author:} \href{https://doi.org/10.1016/j.compag.2023.107739}{\textit{Single-plant broccoli growth monitoring using deep learning with UAV imagery}} (\textit{Computers and Electronics in Agriculture}, 2023)
 \end{itemize}
+\vspace{0.06cm}
 
-\vspace{-0.6cm}
-\section*{\TitleShadow{SKILLS}}
-\vspace{-0.5cm}
-\noindent\rule{\textwidth}{0.4pt} 
+\noindent\textbf{\normalsize B.S. in Civil Engineering} \hfill {\small\textcolor{customblue}{\textit{September 2013 -- June 2018}}}\par
+\vspace{0.02cm}
+{\small\textcolor{mutedgray}{National Chung Hsing University, Taichung}}\par
+\vspace{0.02cm}
 
-\fontsize{10pt}{14pt}\selectfont
-\noindent \textbf{Programming:} Python (Advanced), C++ (Basic), Golang (Basic), \LaTeX \hspace{0.5cm} \textbf{OS:} Windows, Linux \\ [0.08cm]
-\textbf{Framework \& Package:} Pytorch, Tensorflow, Onnx, Opencv, Scikit-image, FastAPI, Gstreamer, RabbitMQ, Celery \\ [0.08cm]
-\textbf{Tools:} Git, Docker, Kubernetes, Nvidia Triton, GCP, Azure, Figma, ClickUp \\ [0.08cm]
-\textbf{Others:} Project Management, UI/UX Design, GIS, GPS, Communication Skills, Presentation Skills \\ [0.08cm]
+% --- Leadership & Activities ---
+\SectionHeader{Leadership \& Activities}
+
+\vspace{-0.13cm}
+\begin{itemize}[leftmargin=0.45cm, labelsep=0.22cm, itemsep=0.05cm, topsep=0.06cm, parsep=0pt]
+  \fontsize{9.15pt}{11.55pt}\selectfont
+  \item \textbf{Violinist \& Former Student Conductor:} Performed with the National Taiwan Symphony Orchestra and Taipei Philharmonic. Previously led and conducted a 60+ member symphony orchestra as Concertmaster and Student Conductor.
+  \item \textbf{Community Music Organizer:} Organized and performed 20+ classical chamber music concerts in rural Taiwan, bringing live performances to underserved children.
+\end{itemize}
+\vspace{-0.08cm}
+
+% --- Skills ---
+\SectionHeader{Skills}
+
+{\fontsize{9.15pt}{11.55pt}\selectfont
+\noindent\textbf{Programming:} Python (Primary), TypeScript, \LaTeX \hspace{0.45cm} \textbf{OS:} Linux, Windows\\[0.05cm]
+\textbf{Frameworks \& Packages:} Angular, PyTorch, TensorFlow, ONNX, OpenCV, FastAPI, GStreamer, RabbitMQ, Celery\\[0.05cm]
+\textbf{Tools:} Kubernetes, Docker, GCP, CI/CD, NVIDIA Triton, Git, Figma\\[0.05cm]
+\textbf{Others:} Full-Stack, CI/CD Infra, Computer Vision, AI Agent Tooling, MLOps, Project Management, UI/UX\\[0.05cm]
 \textbf{Language:} Chinese (Native), English (Fluent)
+}
 
 \end{document}
 
-% This LaTeX template is created by Chang-Ju (Clement) Lee.
-% Redistribution is allowed but attribution is required.
+% Updated LaTeX resume (without phone, safe for public sharing) for Cheng-Ju (Clement) Lee.
